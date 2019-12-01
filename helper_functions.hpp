@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 #include <vector>
 
 std::vector<std::string> split(const std::string& s, char seperator)
@@ -19,4 +20,11 @@ std::vector<std::string> split(const std::string& s, char seperator)
     output.push_back(s.substr(prev_pos, pos-prev_pos)); // Last word
 
     return output;
+}
+
+void writeToFile(const char* filename, const char* text)
+{
+    std::ofstream file(filename);
+    file << text;
+    file.close();
 }
